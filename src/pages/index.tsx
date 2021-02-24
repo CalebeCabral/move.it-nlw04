@@ -1,5 +1,7 @@
 import Head from 'next/head';
 
+import { ExpBar } from '../components/ExpBar';
+
 import styles from '../styles/pages/Home.module.css';
 
 export default function Home() {
@@ -8,6 +10,8 @@ export default function Home() {
       <Head>
         <title>Início | Move.it</title>
       </Head>
+
+      <ExpBar />
 
       <section>
         <div></div>
