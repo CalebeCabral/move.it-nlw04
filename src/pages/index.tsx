@@ -1,6 +1,8 @@
 import Head from 'next/head';
 
 import { ExpBar } from '../components/ExpBar';
+import { Profile } from '../components/Profile';
+import { CompletedChallenges } from '../components/CompletedChallenges';
 
 import styles from '../styles/pages/Home.module.css';
 
@@ -14,7 +16,10 @@ export default function Home() {
       <ExpBar />
 
       <section>
-        <div></div>
+        <div>
+          <Profile />
+          <CompletedChallenges />
+        </div>
         <div></div>
       </section>
     </div>
