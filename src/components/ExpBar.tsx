@@ -7,8 +7,9 @@ export function ExpBar() {
     ChallengesContext
   );
 
-  const percentToNextLevel =
-    Math.round(currentExp * 100) / experienceToNextLevel;
+  const percentToNextLevel = Number(
+    Math.round(currentExp * 100) / experienceToNextLevel
+  );
 
   return (
     <header className={styles.experienceBar}>
