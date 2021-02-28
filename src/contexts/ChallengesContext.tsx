@@ -17,6 +17,7 @@ interface ChallengesContextData {
   currentExp: number;
   challengesCompleted: number;
   activeChallenge: Challenge;
+  prevLevelExp: number;
   experienceToNextLevel: number;
   levelUp: () => void;
   startNewChallenge: () => void;
@@ -30,6 +31,7 @@ interface ChallengesProviderProps {
   level: number;
   currentExp: number;
   challengesCompleted: number;
+  prevLevelExp: number;
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData);
@@ -43,20 +45,23 @@ export function ChallengesProvider({
   const [challengesCompleted, setChallengesCompleted] = useState(
     rest.challengesCompleted ?? 0
   );
+  const [prevLevelExp, setPrevLevelExp] = useState(rest.prevLevelExp ?? 0);
+
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
 
   const [activeChallenge, setActiveChallenge] = useState(null);
 
-  const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
+  const experienceToNextLevel = Math.pow((level + 1) * 4, 2) + prevLevelExp;
 
   useEffect(() => {
     Notification.requestPermission();
   }, []);
 
   useEffect(() => {
-    Cookies.set("level", String(level));
-    Cookies.set("currentExp", String(currentExp));
-    Cookies.set("challengesCompleted", String(challengesCompleted));
+    Cookies.set("level", level.toString());
+    Cookies.set("currentExp", currentExp.toString());
+    Cookies.set("challengesCompleted", challengesCompleted.toString());
+    Cookies.set("prevLevelExp", prevLevelExp.toString());
   }, [level, currentExp, challengesCompleted]);
 
   function levelUp() {
@@ -97,7 +102,7 @@ export function ChallengesProvider({
     let finalExp = currentExp + amount;
 
     if (finalExp >= experienceToNextLevel) {
-      finalExp = finalExp - experienceToNextLevel;
+      setPrevLevelExp(experienceToNextLevel);
       levelUp();
     }
 
@@ -112,6 +117,7 @@ export function ChallengesProvider({
         level,
         currentExp,
         challengesCompleted,
+        prevLevelExp,
         experienceToNextLevel,
         levelUp,
         startNewChallenge,
