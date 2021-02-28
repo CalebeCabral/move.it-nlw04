@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 7rem;
+  height: 100vh;
+
+  background: var(--background);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+}
+
+.container a {
+  position: relative;
+  width: 100%;
+  padding: 0.8rem 0rem;
+
+  text-align: center;
+  font-size: 0rem;
+}
+
+.container a.selected {
+  color: var(--blue);
+}
+
+.container a.selected::before {
+  content: "";
+  display: block;
+
+  position: absolute;
+  left: -4px;
+  top: 0;
+  height: 100%;
+  width: 8px;
+
+  background-color: var(--blue);
+  border-radius: 10px;
+}
+
+.container a:not(:last-child) {
+  margin-bottom: 2rem;
+}
