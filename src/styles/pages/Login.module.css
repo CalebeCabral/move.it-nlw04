@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  width: 100vw;
+  height: 100vh;
+  min-height: 900px;
+
+  background: var(--blue);
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+
+  width: 40%;
+
+  position: absolute;
+  right: 5rem;
+}
