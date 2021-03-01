@@ -1,20 +1,31 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding: 2rem 0 5rem;
 
   position: fixed;
   left: 0;
   top: 0;
-  width: 7rem;
+  width: 5.5rem;
   height: 100vh;
 
-  background: var(--background);
+  background: linear-gradient(from top var(--white), rgb(0 0 0 / 0%) 75%);
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
 }
 
-.container a {
+.links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.links a {
   position: relative;
   width: 100%;
   padding: 0.8rem 0rem;
@@ -23,11 +34,11 @@
   font-size: 0rem;
 }
 
-.container a.selected {
+.links a.selected {
   color: var(--blue);
 }
 
-.container a.selected::before {
+.links a.selected::before {
   content: "";
   display: block;
 
@@ -41,6 +52,6 @@
   border-radius: 10px;
 }
 
-.container a:not(:last-child) {
+.links a:not(:last-child) {
   margin-bottom: 2rem;
 }
