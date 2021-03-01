@@ -5,6 +5,7 @@ import styles from "../styles/pages/Home.module.css";
 
 import { CountdownProvider } from "../contexts/CountdownContext";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
+import { ChallengesProviderProps } from "../utils/types";
 
 import Layout from "../layout";
 
@@ -14,14 +15,7 @@ import { CompletedChallenges } from "../components/CompletedChallenges";
 import { Countdown } from "../components/Countdown";
 import { ChallengeBox } from "../components/ChallengeBox";
 
-interface HomeProps {
-  level: number;
-  currentExp: number;
-  challengesCompleted: number;
-  prevLevelExp: number;
-}
-
-export default function Home(props: HomeProps) {
+export default function Home(props: ChallengesProviderProps) {
   const { level, currentExp, challengesCompleted, prevLevelExp } = props;
 
   return (
@@ -34,7 +28,7 @@ export default function Home(props: HomeProps) {
       <Layout>
         <div className={styles.container}>
           <Head>
-            <title>Início | Move.it</title>
+            <title>Move.it - Home</title>
           </Head>
 
           <ExpBar />
