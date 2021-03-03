@@ -1,21 +1,115 @@
 .container {
   position: relative;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 
   width: 100vw;
   height: 100vh;
   min-height: 900px;
 
-  background: var(--blue);
+  background-color: var(--blue);
+  background-image: url(../../../public/bg-logo.png);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: -10% center;
 }
 
 .login {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 
-  width: 40%;
+  width: 50%;
 
+  color: var(--white);
+}
+
+.login > img {
+  width: 360px;
+  margin-bottom: 6rem;
+}
+
+.login h1 {
+  margin-bottom: 1rem;
+}
+
+.login p {
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+.login > p {
+  margin-bottom: 2.5rem;
+}
+
+.login button {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  z-index: 1;
+
+  border: 0;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--blue-dark), rgba(0, 0, 0, 0));
+  overflow: hidden;
+}
+
+.login button:after {
+  content: "";
   position: absolute;
-  right: 5rem;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  background: linear-gradient(90deg, var(--blue-dark) 40%, rgba(0, 0, 0, 0));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.login button > div {
+  display: flex;
+  align-items: center;
+}
+
+.login .providerImage {
+  margin-right: 1rem;
+  width: 40px;
+}
+
+.login button > * {
+  position: relative;
+  z-index: 3;
+}
+
+.login button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+
+  margin-left: 2rem;
+
+  font-size: 0;
+
+  background: var(--blue-dark);
+  transition: background 0.3s;
+}
+
+.login button:hover {
+}
+
+.login button:hover:after {
+  opacity: 1;
+}
+
+.login button:hover span {
+  background: var(--green);
 }
