@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from "react";
 
 import { ChallengesProvider } from "../contexts/ChallengesContext";
-import { ChallengesProviderProps } from "../utils/types";
+import { ChallengesProviderProps } from "../utils/types/types";
 
 import Layout from "../layout";
 

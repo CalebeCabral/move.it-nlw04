@@ -5,7 +5,7 @@ import styles from "../styles/pages/Home.module.css";
 
 import { CountdownProvider } from "../contexts/CountdownContext";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
-import { ChallengesProviderProps } from "../utils/types";
+import { ChallengesProviderProps } from "../utils/types/types";
 
 import Layout from "../layout";
 

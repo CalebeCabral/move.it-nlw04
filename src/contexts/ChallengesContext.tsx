@@ -6,7 +6,7 @@ import challenges from "../../challenges.json";
 
 import { LevelUpModal } from "../components/LevelUpModal";
 
-import { ChallengesProviderProps } from "../utils/types";
+import { ChallengesProviderProps } from "../utils/types/types";
 
 interface Challenge {
   type: "body" | "eye";
