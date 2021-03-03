@@ -1,6 +1,10 @@
+import { MouseEvent } from "react";
 import Head from "next/head";
-import styles from "../styles/pages/Login.module.css";
+import { signIn, useSession } from "next-auth/client";
+
 import { capitalize } from "../utils/helpers/utils";
+
+import styles from "../styles/pages/Login.module.css";
 
 interface AuthButtonProps {
   provider: string;
@@ -27,8 +31,13 @@ export default function Login() {
 }
 
 export function AuthButton({ provider }: AuthButtonProps) {
+  const handleLogin = (e: MouseEvent) => {
+    e.preventDefault();
+    signIn(provider);
+  };
+
   return (
-    <button type="button">
+    <button type="button" onClick={handleLogin}>
       <div>
         <img
           className={styles.providerImage}
