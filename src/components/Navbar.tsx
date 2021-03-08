@@ -1,7 +1,11 @@
 import Link from "./ActiveLink";
 
+import { signOut } from "next-auth/client";
+
 import { HomeIcon } from "../icons/HomeIcon";
 import { AwardIcon } from "../icons/AwardIcon";
+
+import { AuthButton, LogoutButton } from "../components/AuthButton";
 
 import styles from "../styles/components/Navbar.module.css";
 
@@ -23,6 +27,8 @@ export function Navbar() {
           </a>
         </Link>
       </div>
+      <AuthButton provider="github" />
+      <LogoutButton />
     </nav>
   );
 }

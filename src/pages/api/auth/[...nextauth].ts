@@ -1,7 +1,7 @@
+import type { NextApiHandler } from "next";
+
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
-
-import type { NextApiRequest, NextApiResponse } from "next";
 
 const providers = [
   Providers.GitHub({
@@ -10,12 +10,15 @@ const providers = [
   }),
 ];
 
-const callbacks = {};
+const pages = {
+  signIn: "/login",
+};
 
 const options = {
   providers,
-  callbacks,
+  pages,
 };
 
-export default (req: NextApiRequest, res: NextApiResponse) =>
+const apiHandler: NextApiHandler = (req, res): Promise<void> =>
   NextAuth(req, res, options);
+export default apiHandler;

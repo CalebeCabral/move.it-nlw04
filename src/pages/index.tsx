@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { GetServerSideProps } from "next";
-
-import styles from "../styles/pages/Home.module.css";
+import { useSession } from "next-auth/client";
 
 import { CountdownProvider } from "../contexts/CountdownContext";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
@@ -15,8 +14,12 @@ import { CompletedChallenges } from "../components/CompletedChallenges";
 import { Countdown } from "../components/Countdown";
 import { ChallengeBox } from "../components/ChallengeBox";
 
+import styles from "../styles/pages/Home.module.css";
+
 export default function Home(props: ChallengesProviderProps) {
   const { level, currentExp, challengesCompleted, prevLevelExp } = props;
+  const [session] = useSession();
+  console.log(session);
 
   return (
     <ChallengesProvider
